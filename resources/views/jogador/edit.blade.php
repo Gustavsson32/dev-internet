@@ -13,7 +13,7 @@
         <p><input type="text" name="nacionalidade" placeholder="Nacionalidade" value = "{{$jog->nacionalidade}}"></p>
         <p><input type="text" name="clube" placeholder="Clube" value = "{{$jog->clube}}"></p>
         <p><input type="text" name="situacao" placeholder="Situacao" value = "{{$jog->situacao}}"></p>
-        <p><input type="file" name="foto" placeholder="Foto" value = "{{$jog->foto}}"></p>
+        <p><input type="file" name="foto" placeholder="Foto" value = ""></p>
        
         <p><input type="submit" value="Salvar" id="botao_busca">
         <a id="botao_busca" href="{{route('jogador')}}">Voltar</a>

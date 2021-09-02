@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',  [UsuariosController::class,'login'])->name('usuario.login');
+Route::get('/', [UsuariosController::class,'logout'])->name('usuario.logout');
 
 Route::get('jogador/inserir', [JogadorController::class, 'create'])->name('jogador.inserir');
 Route::get('jogador/{id}', [JogadorController::class, 'view'])->name('jogador.descricao');
@@ -27,4 +27,4 @@ Route::put('jogador/{jogador}/edit', [JogadorController::class, 'update'])->name
 Route::get('jogador/{jog}/delete', [JogadorController::class, 'delete'])->name('jogador.deletar');
 Route::get('login', [UsuariosController::class,'index'])->name('usuario.index');
 Route::post('login', [UsuariosController::class,'login'])->name('usuario.login');
-Route::get('logout', [UsuariosController::class,'logout'])->name('usuario.logout');
+

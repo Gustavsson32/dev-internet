@@ -49,8 +49,10 @@ class JogadorController extends Controller
         if ($formulario->foto) $path = $formulario->file('foto')->store('', 'imagens');
         else $path = "";
 
+        
+
         $jogador->nome = $formulario->nome;
-        $jogador->foto = $path;
+        if ($path) $jogador->foto = $path;
         $jogador->idade = $formulario->idade;
         $jogador->nacionalidade = $formulario->nacionalidade;
         $jogador->clube = $formulario->clube;
