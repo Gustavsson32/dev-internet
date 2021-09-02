@@ -22,19 +22,22 @@ class JogadorController extends Controller
     }
 
     public function insert(Request $formulario){
-        $jogador = new Jogador();
-        
-        if ($formulario->foto) $path = $formulario->file('foto')->store('', 'imagens');
-        else $path = "";
+        if (session('usuario.papel') == 'admin'){
+            $jogador = new Jogador();
+            
+            if ($formulario->foto) $path = $formulario->file('foto')->store('', 'imagens');
+            else $path = "";
+    
+    
+            $jogador->nome = $formulario->nome;
+            $jogador->foto = $path;
+            $jogador->idade = $formulario->idade;
+            $jogador->nacionalidade = $formulario->nacionalidade;
+            $jogador->clube = $formulario->clube;
+            $jogador->situacao = $formulario->situacao;
+            $jogador->save();            
+        }
 
-
-        $jogador->nome = $formulario->nome;
-        $jogador->foto = $path;
-        $jogador->idade = $formulario->idade;
-        $jogador->nacionalidade = $formulario->nacionalidade;
-        $jogador->clube = $formulario->clube;
-        $jogador->situacao = $formulario->situacao;
-        $jogador->save();
         return redirect()->route('jogador');
     }
 

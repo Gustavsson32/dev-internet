@@ -4,9 +4,9 @@
     
     <div id="corpo">    
 
-        <p>
-        <a id="botao_busca" href="{{route('jogador.inserir')}}">Inserir jogador</a>
-        </p>
+        @if (session('usuario.papel') == 'admin')            
+            <p><a id="botao_busca" href="{{route('jogador.inserir')}}">Inserir jogador</a></p>
+        @endif 
 
         <table border="1">
         <tr>
@@ -26,9 +26,20 @@
         <td>{{$jog->idade}}</td>
         <td>{{$jog->clube}}</td>
         <td>{{$jog->nacionalidade}}</td>
-        <td>{{$jog->situacao}}</td>
-        <td><a href="{{route('jogador.editar', $jog->id)}}"><img src="{{asset('img/refresh.png')}}" /></a></td>
-        <td><a href="{{route('jogador.deletar', $jog->id)}}"><img src="{{asset('img/lixeira.png')}}" /></a></td>
+        <td>{{$jog->situacao}}</td>        
+        
+        @if (session('usuario.papel') == 'admin')
+            <td><a href="{{route('jogador.editar', $jog->id)}}"><img src="{{asset('img/refresh.png')}}" /></a></td>
+        @else
+            <td><img src="{{asset('img/refresh.png')}}" /></td>
+        @endif  
+
+        @if (session('usuario.papel') == 'admin')
+            <td><a href="{{route('jogador.deletar', $jog->id)}}"><img src="{{asset('img/lixeira.png')}}" /></a></td>
+        @else
+            <td><img src="{{asset('img/lixeira.png')}}" /></td>
+        @endif  
+        
         </tr>
         @endforeach
         </table>
