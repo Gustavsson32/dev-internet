@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [JogadorController::class, 'index'])->name('jogador');
+Route::get('/',  [UsuariosController::class,'login'])->name('usuario.login');
 
 Route::get('jogador/inserir', [JogadorController::class, 'create'])->name('jogador.inserir');
 Route::get('jogador/{id}', [JogadorController::class, 'view'])->name('jogador.descricao');
