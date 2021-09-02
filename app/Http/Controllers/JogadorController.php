@@ -24,7 +24,9 @@ class JogadorController extends Controller
     public function insert(Request $formulario){
         $jogador = new Jogador();
         
-        $path = $formulario->file('foto')->store('fotos');
+        if ($formulario->foto) $path = $formulario->file('foto')->store('', 'imagens');
+        else $path = "";
+
 
         $jogador->nome = $formulario->nome;
         $jogador->foto = $path;
@@ -41,7 +43,8 @@ class JogadorController extends Controller
     }
 
     public function update(Jogador $jogador, Request $formulario){
-        $path = $formulario->file('foto')->store('foto');
+        if ($formulario->foto) $path = $formulario->file('foto')->store('', 'imagens');
+        else $path = "";
 
         $jogador->nome = $formulario->nome;
         $jogador->foto = $path;

@@ -21,14 +21,14 @@
         </tr>
         @foreach($jogs as $jog)
         <tr>
-        <td><a href=""> <img src={{$jog->foto}} width='45px' height='50px'/></a></td>
+        <td><a href="{{route('jogador.descricao', $jog->id)}}"> <img src="{{asset('img/' . $jog->foto)}}" width='100px' height='120px'/></a></td>
         <td><a href="{{route('jogador.descricao', $jog->id)}}">{{$jog->nome}}</a></td>
         <td>{{$jog->idade}}</td>
         <td>{{$jog->clube}}</td>
         <td>{{$jog->nacionalidade}}</td>
         <td>{{$jog->situacao}}</td>
-        <td><a href="{{route('jogador.editar', $jog->id)}}">Editar</a></td>
-        <td><a href="{{route('jogador.deletar', $jog->id)}}">Deletar</a></td>
+        <td><a href="{{route('jogador.editar', $jog->id)}}"><img src="{{asset('img/refresh.png')}}" /></a></td>
+        <td><a href="{{route('jogador.deletar', $jog->id)}}"><img src="{{asset('img/lixeira.png')}}" /></a></td>
         </tr>
         @endforeach
         </table>

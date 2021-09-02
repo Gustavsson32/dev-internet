@@ -12,10 +12,10 @@
     <p><input type="text" name="clube" placeholder="Clube"></p>
     <p><input type="text" name="situacao" placeholder="Situacao"></p>
     <p><input type="file" name="foto" placeholder="Foto"></p>
-    <p><input type="submit" value="Gravar"></p>
-    </form>
+    <p><input type="submit" value="Gravar" id="botao_busca" >
 
     <a id="botao_busca" href="{{route('jogador')}}">Voltar</a>
+    </form>
     
     </div>
 @endsection
